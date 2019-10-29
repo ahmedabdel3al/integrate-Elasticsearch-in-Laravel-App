@@ -11,19 +11,10 @@
 |
 */
 
-use App\Articles\EloquentRepository;
-use Elasticsearch\ClientBuilder;
 use Illuminate\Http\Request;
 
 Route::get('search', function (Request $request) {
-    $client = ClientBuilder::create()->build();
-    $articles = new EloquentRepository($client);
-    if ($request->query('q')) {
-        $articles = $articles->search2($request->query('q') ?: '');
-    } else {
-        $articles = $articles->search($request->query('q') ?: '');
-    }
-    return view('welcome', compact('articles'));
+    dd('2222222');
 });
 
 Auth::routes();
