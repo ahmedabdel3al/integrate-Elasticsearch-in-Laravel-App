@@ -15,8 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Client::class, function ($app) {
-            return ClientBuilder::create()->setHosts([])->build();
+        $this->app->singleton('clientBuilder', function ($app) {
+            // return ClientBuilder::create()->setHosts()->build();
         });
     }
 
