@@ -1,7 +1,4 @@
 <?php
-//
 return [
-    'hosts' => [
-        'host' => env('ELASTIC_SEARCH_HOST', 'localhost'),
-    ]
+    'host' => env('ELASTIC_SEARCH_HOST', 'localhost'),
 ];

@@ -11,10 +11,12 @@
 |
 */
 
+use App\Article;
 use Illuminate\Http\Request;
 
 Route::get('search', function (Request $request) {
-    dd('2222222');
+    $articles = Article::all();
+    return view('welcome', compact('articles'));
 });
 
 Auth::routes();
