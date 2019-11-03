@@ -32,6 +32,9 @@ trait Searchable
         }
         return $this->getTable();
     }
+    /**
+     * Covert model to Array 
+     */
     public function toSearchArray()
     {
         // By having a custom method that transforms the model

@@ -14,9 +14,6 @@ class ElasticSearchObserver
             'type' => $model->getSearchType(),
             'id' => $model->getKey(),
             'body' => $model->toSearchArray(),
-            'client' => [
-                'future' => 'lazy'
-            ]
         ]);
     }
     /**
@@ -29,9 +26,6 @@ class ElasticSearchObserver
             'type' => $model->getSearchType(),
             'id' => $model->getKey(),
             'body' => $model->toSearchArray(),
-            'client' => [
-                'future' => 'lazy'
-            ]
         ]);
     }
     /**
@@ -43,9 +37,6 @@ class ElasticSearchObserver
             'index' => $model->getSearchIndex(),
             'type' => $model->getSearchType(),
             'id' => $model->getKey(),
-            'client' => [
-                'future' => 'lazy'
-            ]
         ]);
     }
 }

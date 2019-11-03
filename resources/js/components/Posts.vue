@@ -2,18 +2,15 @@
   <div class="container">
     <div class="card">
       <div class="card-header">
-        Articles
+        <input type="text" name="search" class="form-control" v-model="searchKey" />
+        <br />Articles
         <small>({{ articles.length }})</small>
       </div>
       <div class="card-body">
-        <searchable></searchable>
         <article class="mb-3" v-for="(article,i) in articles" :key="i">
-          <h2>{{ article.title }}</h2>
-
-          <p class="m-0">{{ article.body }}</p>
-
+          <text-highlight :queries="queries">{{ article.title }}</text-highlight>
           <div v-for="(tag, i) in article.tags" :key="i">
-            <span class="badge badge-light">{{tag}}</span>
+            <text-highlight :queries="queries">{{tag}}</text-highlight>
           </div>
         </article>
       </div>
@@ -28,6 +25,17 @@ export default {
       required: true,
       type: Array
     }
+  },
+  data() {
+    return {
+      queries: "",
+      searchKey: undefined
+    };
+  },
+  watch: {
+    searchKey: _.debounce(async function(newVal) {
+      await axios.post("/search", { key: newVal });
+    }, 1000)
   }
 };
 </script>

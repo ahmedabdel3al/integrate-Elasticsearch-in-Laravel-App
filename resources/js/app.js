@@ -7,7 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+import TextHighlight from 'vue-text-highlight';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,7 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('Posts', require('./components/Posts.vue').default);
-Vue.component('Searchable', require('./components/Searchable.vue').default);
+Vue.component('text-highlight', TextHighlight);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

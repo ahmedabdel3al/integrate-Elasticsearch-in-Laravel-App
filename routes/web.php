@@ -14,11 +14,11 @@
 use App\Article;
 use Illuminate\Http\Request;
 
-Route::get('search', function (Request $request) {
+Route::get('/articles', function (Request $request) {
     $articles = Article::all();
     return view('welcome', compact('articles'));
 });
-
+Route::post('/search', 'ElasticSearchController@search');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/test', 'ElasticSearchController@search');
