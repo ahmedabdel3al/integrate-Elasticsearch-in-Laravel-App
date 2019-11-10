@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('clientBuilder', function ($app) {
-            return ClientBuilder::create()->setHosts(config('elasticsearch'))->build();
+            return  ClientBuilder::create()->setHosts(config('elasticsearch'))->build();
         });
     }
 
